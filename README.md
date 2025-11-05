@@ -16,9 +16,9 @@
 
 ## 📖 Sobre o Projeto
 
-Sistema web desenvolvido como projeto acadêmico para a disciplina de Programação Web do curso de **Análise e Desenvolvimento de Sistemas** na **Fatec Americana**, sob orientação do **Professor Diógenes**.
+Sistema web desenvolvido como projeto acadêmico para a disciplina de **Programação Web** do curso de **Análise e Desenvolvimento de Sistemas** na **Fatec Americana**, sob orientação do **Professor Diógenes**.
 
-O projeto implementa um sistema completo de controle de estoque com autenticação de usuários, gerenciamento de produtos, controle de entrada e saída, histórico de movimentações e relatórios.
+O projeto implementa um sistema completo de controle de estoque com autenticação de usuários, gerenciamento de produtos, controle de entrada e saída, e histórico de movimentações.
 
 ---
 
@@ -27,132 +27,88 @@ O projeto implementa um sistema completo de controle de estoque com autenticaç�
 ### 🔐 **Sistema de Autenticação**
 - Login seguro com criptografia SHA-256
 - Dois níveis de acesso: **Administrador** e **Usuário**
-- Sistema de sessões para controle de acesso
+- Controle de sessões
 
 ### 👥 **Gerenciamento de Usuários** (Admin)
-- Cadastro de novos usuários
-- Edição de informações
+- Cadastro, edição e exclusão de usuários
 - Ativação/Desativação de contas
 - Pesquisa por nome, usuário ou ID
 
 ### 📦 **Gerenciamento de Produtos** (Usuário)
-- Cadastro completo de produtos (nome, código, fornecedor, preços, estoque)
+- Cadastro completo (nome, código, fornecedor, preços, estoque)
 - Validação de margem de lucro mínima (20%)
-- Edição de produtos cadastrados
-- Ativação/Desativação de produtos
-- Pesquisa por ID, nome ou código
+- Edição e ativação/desativação de produtos
+- Sistema de pesquisa
 
 ### 📥 **Controle de Entrada**
-- Sistema de pesquisa inteligente de produtos
-- Registro de entradas com fornecedor e nota fiscal
+- Pesquisa inteligente de produtos
+- Registro com fornecedor e nota fiscal
 - Atualização automática do estoque
-- Modal interativo para registro rápido
 
 ### 📤 **Controle de Saída**
-- Validação automática de estoque disponível
-- Alertas visuais para produtos com estoque baixo/zerado
-- Registro de saídas com identificação do cliente
+- Validação de estoque disponível
+- Alertas visuais para estoque baixo/zerado
+- Registro com identificação do cliente
 - Atualização automática do estoque
 
 ### 📋 **Histórico de Movimentações**
-- Visualização completa de todas as movimentações
+- Visualização completa das movimentações
 - Código de cores (verde=entrada, vermelho=saída)
-- Filtros de pesquisa por produto, fornecedor ou cliente
-- Auditoria completa (quem fez, quando fez)
+- Filtros de pesquisa
+- Auditoria completa
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-### **Backend**
 - **C# / ASP.NET Web Forms** - Framework principal
-- **MySQL** - Banco de dados relacional
+- **MySQL** - Banco de dados
 - **ADO.NET** - Acesso a dados
 - **SHA-256** - Criptografia de senhas
-
-### **Frontend**
-- **HTML5 / CSS3** - Estrutura e estilização
-- **JavaScript** - Interações do lado do cliente
-- **Master Pages** - Layout consistente
-
-### **Arquitetura**
-- **Padrão DAL** (Data Access Layer) - Separação de camadas
-- **ViewState** - Gerenciamento de estado
-- **Session** - Controle de autenticação
+- **HTML5 / CSS3** - Interface
+- **JavaScript** - Interações
+- **Padrão DAL** - Separação de camadas
 
 ---
 
 ## 📊 Banco de Dados
 
-### **Estrutura das Tabelas**
+### **Tabelas do Sistema**
 
-#### **logins** - Controle de usuários
-```sql
-- id (INT, PK, AUTO_INCREMENT)
-- nomeFuncionario (VARCHAR)
-- usuarioFuncionario (VARCHAR, UNIQUE)
-- senhaHash (VARCHAR)
-- tipoUsuario (ENUM: 'Admin', 'Usuario')
-- ativo (BOOLEAN)
-- dataCriacao (DATETIME)
-```
+**logins** - Usuários do sistema
+- `id`, `nomeFuncionario`, `usuarioFuncionario`, `senhaHash`, `tipoUsuario`, `ativo`, `dataCriacao`
 
-#### **produtos** - Cadastro de produtos
-```sql
-- id (INT, PK, AUTO_INCREMENT)
-- nome (VARCHAR)
-- codigo (VARCHAR, UNIQUE)
-- descricao (TEXT)
-- fornecedor (VARCHAR)
-- quantidadeEstoque (INT)
-- precoCusto (DECIMAL)
-- precoVenda (DECIMAL)
-- ativo (BOOLEAN)
-- dataCadastro (DATETIME)
-```
+**produtos** - Cadastro de produtos
+- `id`, `nome`, `codigo`, `descricao`, `fornecedor`, `quantidadeEstoque`, `precoCusto`, `precoVenda`, `ativo`, `dataCadastro`
 
-#### **movimentacoes** - Histórico de entrada/saída
-```sql
-- id (INT, PK, AUTO_INCREMENT)
-- produtoId (INT, FK)
-- produtoNome (VARCHAR)
-- tipo (ENUM: 'Entrada', 'Saida')
-- quantidade (INT)
-- fornecedor (VARCHAR)
-- cliente (VARCHAR)
-- notaFiscal (VARCHAR)
-- observacao (TEXT)
-- usuarioId (INT)
-- usuarioNome (VARCHAR)
-- dataMovimentacao (DATETIME)
-```
+**movimentacoes** - Histórico de entrada/saída
+- `id`, `produtoId`, `produtoNome`, `tipo`, `quantidade`, `fornecedor`, `cliente`, `notaFiscal`, `observacao`, `usuarioId`, `usuarioNome`, `dataMovimentacao`
 
 ---
 
 ## 🖥️ Demonstração
 
-### 🔐 **Tela de Login e Gerenciamento de Logins**
-<img width="1905" height="906" alt="image" src="https://github.com/user-attachments/assets/a4d2423d-44f7-45da-b61c-36a6b28afff8" />
-<img width="1910" height="927" alt="image" src="https://github.com/user-attachments/assets/9fd08a43-e925-44af-a00b-cab011a3f270" />
-<img width="1912" height="931" alt="image" src="https://github.com/user-attachments/assets/bcfc333e-078b-443a-8117-babf95de0bdb" />
-<img width="1899" height="921" alt="image" src="https://github.com/user-attachments/assets/dc63dc89-b3cb-418d-b589-7d15af98fede" />
+### 🔐 Tela de Login e Gerenciamento de Logins
+<img width="1905" alt="Login" src="https://github.com/user-attachments/assets/a4d2423d-44f7-45da-b61c-36a6b28afff8" />
+<img width="1910" alt="Gerenciar Usuários" src="https://github.com/user-attachments/assets/9fd08a43-e925-44af-a00b-cab011a3f270" />
+<img width="1912" alt="Cadastrar Usuário" src="https://github.com/user-attachments/assets/bcfc333e-078b-443a-8117-babf95de0bdb" />
+<img width="1899" alt="Editar Usuário" src="https://github.com/user-attachments/assets/dc63dc89-b3cb-418d-b589-7d15af98fede" />
 
-### 📦 **Gerenciamento de Produtos**
+### 📦 Gerenciamento de Produtos
+<img width="1917" alt="Lista de Produtos" src="https://github.com/user-attachments/assets/b7840957-89d2-4e00-a253-b714531687e4" />
+<img width="1900" alt="Cadastrar Produto" src="https://github.com/user-attachments/assets/415e56df-899a-4271-95c1-0c6abfe01f83" />
+<img width="1909" alt="Editar Produto" src="https://github.com/user-attachments/assets/656c7517-279e-46d5-88a7-15d1265ac1d4" />
 
-<img width="1917" height="936" alt="image" src="https://github.com/user-attachments/assets/b7840957-89d2-4e00-a253-b714531687e4" />
-<img width="1900" height="942" alt="image" src="https://github.com/user-attachments/assets/415e56df-899a-4271-95c1-0c6abfe01f83" />
-<img width="1909" height="943" alt="image" src="https://github.com/user-attachments/assets/656c7517-279e-46d5-88a7-15d1265ac1d4" />
+### 📥 Controle de Entrada
+<img width="1919" alt="Controle de Entrada" src="https://github.com/user-attachments/assets/ef137022-3010-4172-9789-f4d44d43976f" />
+<img width="1914" alt="Modal de Entrada" src="https://github.com/user-attachments/assets/9bebe47f-7eeb-4d77-b185-739291adfb11" />
 
-### 📥 **Controle de Entrada (Modal)**
-<img width="1919" height="931" alt="image" src="https://github.com/user-attachments/assets/ef137022-3010-4172-9789-f4d44d43976f" />
-<img width="1914" height="926" alt="image" src="https://github.com/user-attachments/assets/9bebe47f-7eeb-4d77-b185-739291adfb11" />
+### 📤 Controle de Saída
+<img width="1894" alt="Controle de Saída" src="https://github.com/user-attachments/assets/05eb3530-e625-4cd4-b9ac-5908d471b218" />
+<img width="1874" alt="Modal de Saída" src="https://github.com/user-attachments/assets/9e562a80-2cd7-4a18-a309-ec38993da103" />
 
-### 📤 **Controle de Saída (com alertas)**
-<img width="1894" height="931" alt="image" src="https://github.com/user-attachments/assets/05eb3530-e625-4cd4-b9ac-5908d471b218" />
-<img width="1874" height="930" alt="image" src="https://github.com/user-attachments/assets/9e562a80-2cd7-4a18-a309-ec38993da103" />
-
-### 📋 **Histórico Colorido**
-<img width="1895" height="926" alt="image" src="https://github.com/user-attachments/assets/1f164552-9e2e-42e5-b3a0-12c450991c63" />
+### 📋 Histórico de Movimentações
+<img width="1895" alt="Histórico" src="https://github.com/user-attachments/assets/1f164552-9e2e-42e5-b3a0-12c450991c63" />
 
 ---
 
@@ -163,112 +119,106 @@ O projeto implementa um sistema completo de controle de estoque com autenticaç�
 - MySQL Server 8.0 ou superior
 - .NET Framework 4.7.2 ou superior
 
+---
+
 ### **Passo 1: Clone o repositório**
 ```bash
 git clone https://github.com/pablohssantos/ControleDeEstoque.git
 cd ControleDeEstoque
 ```
 
+---
+
 ### **Passo 2: Configure o banco de dados**
 
-# 📋 Instruções de Instalação do Banco de Dados
-
-## Passo a Passo
-
-1. **Abra o MySQL Workbench ou linha de comando do MySQL**
-
-2. **Crie o banco de dados:**
+#### **2.1 - Crie o banco de dados:**
 ```sql
 CREATE DATABASE controledeestoque;
 USE controledeestoque;
 ```
 
-3. **Execute os scripts na ordem:**
+#### **2.2 - Importe as tabelas:**
 
-### **Ordem de execução:**
-1. `01_criar_tabela_logins.sql`
-2. `02_criar_tabela_produtos.sql`
-3. `03_criar_tabela_movimentacoes.sql`
-4. `04_insert_admin_padrao.sql`
+**Opção A - MySQL Workbench:**
+1. Abra o MySQL Workbench
+2. Vá em **Server → Data Import**
+3. Selecione **"Import from Self-Contained File"**
+4. Escolha o arquivo `Database/estrutura_banco.sql`
+5. Clique em **"Start Import"**
 
-### **No MySQL Workbench:**
-- File → Open SQL Script → Selecione o arquivo
-- Clique no raio ⚡ para executar
-
-### **Na linha de comando:**
+**Opção B - Linha de Comando:**
 ```bash
-mysql -u root -p controledeestoque < 01_criar_tabela_logins.sql
-mysql -u root -p controledeestoque < 02_criar_tabela_produtos.sql
-mysql -u root -p controledeestoque < 03_criar_tabela_movimentacoes.sql
-mysql -u root -p controledeestoque < 04_insert_admin_padrao.sql
+mysql -u root -p controledeestoque < Database/estrutura_banco.sql
 ```
 
-## 🔐 Credenciais Padrão
+#### **2.3 - Login Padrão:**
 
-**Administrador:**
-- Usuário: `admin`
-- Senha: `admin123`
+Após importar o banco, você já pode fazer login:
 
-⚠️ **IMPORTANTE:** A senha está criptografada em SHA-256 no banco de dados por segurança.
+| Campo | Valor |
+|-------|-------|
+| **Usuário** | `admin` |
+| **Senha** | `admin` |
 
-## ✅ Verificação
+> ⚠️ **IMPORTANTE:** O usuário admin já vem criado automaticamente no arquivo SQL! A senha está criptografada (SHA-256) por segurança.
 
-Para confirmar que tudo foi criado corretamente:
-```sql
--- Ver tabelas criadas
-SHOW TABLES;
+---
 
--- Verificar usuário admin
-SELECT * FROM logins WHERE usuarioFuncionario = 'admin';
+### **Passo 3: Configure a conexão no código**
+
+Abra os arquivos `*DAL.cs` (UsuarioDAL, ProdutoDAL, MovimentacaoDAL) e atualize a string de conexão:
+```csharp
+private string conexaoBD = "Server=localhost;Database=controledeestoque;Uid=root;Pwd=SUA_SENHA_AQUI;";
 ```
 
-Pronto! Agora você pode acessar o sistema! 🚀
-### **Passo 3: Compile e Execute**
+Substitua `SUA_SENHA_AQUI` pela senha do seu MySQL.
 
-1. Abra o projeto no Visual Studio
-2. Compile o projeto (Ctrl + Shift + B)
+---
+
+### **Passo 4: Execute o projeto**
+
+1. Abra o projeto no **Visual Studio**
+2. Compile (Ctrl + Shift + B)
 3. Execute (F5)
-
-### **Login Padrão**
-- **Admin**: `admin` / Senha: `admin123`
-- **Usuário**: Cadastre pela área administrativa
+4. Faça login com:
+   - Usuário: `admin`
+   - Senha: `admin`
 
 ---
 
 ## 📚 Conceitos Aplicados
 
 ### **Programação**
-✅ Orientação a Objetos (Classes DAL)  
-✅ Validação de dados (client-side e server-side)  
-✅ Criptografia (SHA-256)  
+✅ Orientação a Objetos  
+✅ Padrão DAL (Data Access Layer)  
+✅ Validação de dados  
+✅ Criptografia SHA-256  
 ✅ Tratamento de exceções  
-✅ Padrão de projeto (Data Access Layer)  
 
 ### **Banco de Dados**
 ✅ Modelagem relacional  
-✅ Relacionamento entre tabelas (Foreign Keys)  
-✅ Transações (para garantir integridade)  
-✅ Consultas parametrizadas (prevenção de SQL Injection)  
+✅ Foreign Keys  
+✅ Transações  
+✅ Prevenção de SQL Injection  
 
 ### **Web**
 ✅ ASP.NET Web Forms  
 ✅ Master Pages  
 ✅ ViewState e Session  
-✅ GridView e eventos  
+✅ GridView  
 ✅ CSS responsivo  
 
 ---
 
 ## 🚀 Melhorias Futuras
 
-- [ ] Dashboard com gráficos de vendas
+- [ ] Dashboard com gráficos
 - [ ] Relatórios em PDF/Excel
-- [ ] Sistema de alertas de estoque mínimo
-- [ ] Múltiplos fornecedores por produto
-- [ ] Controle de validade de produtos
-- [ ] API REST para integração
+- [ ] Alertas de estoque mínimo
+- [ ] Controle de validade
+- [ ] API REST
 - [ ] Modo escuro
-- [ ] Aplicativo mobile
+- [ ] App mobile
 
 ---
 
@@ -278,8 +228,16 @@ Pronto! Agora você pode acessar o sistema! 🚀
 
 📚 Análise e Desenvolvimento de Sistemas - 2º Semestre  
 🏫 Fatec Americana - Ministro Ralph Biasi  
-👨‍🏫 Orientador: Prof. Diógenes  
+👨‍🏫 Prof. Diógenes  
 📅 2025
+
+### 🔗 Contatos
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pablo-henrique-soares-dos-santos-8b6676355)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/pablohssantos)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:pablohssoares@gmail.com)
+
+---
 
 ## 📄 Licença
 
