@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="ControleDeEstoque.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="StyleSheetMaster.css" rel="stylesheet" />
+</head>
+
+<body>
+    <form id="form1" runat="server">
+
+        <!-- CABEÇALHO -->
+        <div class="cabecalho">
+            <div class="logomarca">
+                <asp:Image ID="Logomarca" ImageUrl="Recusos/img/logo.png" runat="server" />
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="sidebar-links">
+                <a href="GerenciadorDeEstoque.aspx">Cadastrar/Gerenciar</a>
+                <a href="ControleEntrada.aspx">Controle de Entrada</a>
+                <a href="ControleSaida.aspx">Controle de Saída</a>
+                <a href="Historico.aspx">Histórico</a>
+            </div>
+
+            <asp:Button ID="btnLogout" runat="server"
+                Text="🚪 Sair"
+                CssClass="sidebar-logout"
+                OnClick="btnLogout_Click"
+                OnClientClick="return confirm('Deseja realmente sair do sistema?');" />
+        </div>
+
+        <div>
+            <asp:ContentPlaceHolder ID="conteudo" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+    </form>
+</body>
+</html>
