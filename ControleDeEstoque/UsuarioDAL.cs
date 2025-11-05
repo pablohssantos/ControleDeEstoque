@@ -6,7 +6,7 @@ using System.Data;
 
 public class UsuarioDAL
 {
-    private string conexaoBD = "Server=localhost;Database=controledeestoque;Uid=root;Pwd=ZnTCruZ1@;";
+    private string conexaoBD = "Server=localhost;Database=controledeestoque;Uid=root;Pwd=suasenha;";
 
     // ========== VALIDAR LOGIN ==========
     public DataTable ValidarLogin(string usuario, string senha)
