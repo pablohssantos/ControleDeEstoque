@@ -6,7 +6,7 @@ using System.Data;
 
 public class ProdutoDAL
 {
-    private string conexaoBD = "Server=localhost;Database=controledeestoque;Uid=root;Pwd=ZnTCruZ1@;";
+    private string conexaoBD = "Server=localhost;Database=controledeestoque;Uid=root;sua senha;";
 
     // ========== LISTAR PRODUTOS (com filtro opcional) ==========
     public DataTable ListarProdutos(string filtro = "")
