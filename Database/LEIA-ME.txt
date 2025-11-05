@@ -1,0 +1,37 @@
+========================================
+   INSTRUÇÕES - BANCO DE DADOS
+========================================
+
+IMPORTANTE: Execute o arquivo "estrutura_banco.sql" no MySQL para criar as tabelas!
+
+Como fazer:
+-----------
+
+OPÇÃO 1 - MySQL Workbench (Recomendado):
+1. Abra o MySQL Workbench
+2. Conecte no MySQL
+3. Crie o banco: CREATE DATABASE controledeestoque;
+4. Vá em: Server → Data Import
+5. Escolha "Import from Self-Contained File"
+6. Selecione o arquivo "estrutura_banco.sql"
+7. Clique em "Start Import"
+
+OPÇÃO 2 - Linha de Comando:
+1. Abra o CMD/Terminal
+2. Digite:
+   mysql -u root -p -e "CREATE DATABASE controledeestoque;"
+   mysql -u root -p controledeestoque < estrutura_banco.sql
+
+========================================
+   LOGIN PADRÃO DO SISTEMA
+========================================
+
+Após importar o banco, use estas credenciais:
+
+Usuário: admin
+Senha: admin
+
+IMPORTANTE: Este usuário admin já vem criado no arquivo SQL!
+Sem ele você não consegue entrar no sistema na primeira vez.
+
+========================================
