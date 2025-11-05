@@ -4,7 +4,7 @@ using System.Data;
 
 public class MovimentacaoDAL
 {
-    private string conexaoBD = "Server=localhost;Database=controledeestoque;Uid=root;Pwd=ZnTCruZ1@;";
+    private string conexaoBD = "Server=localhost;Database=controledeestoque;Uid=root;Pwd=suasenha;";
 
     // ========== REGISTRAR ENTRADA ==========
     // Registra uma movimentação de entrada e atualiza o estoque do produto.
